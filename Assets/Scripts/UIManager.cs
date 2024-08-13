@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     public void RequestReward()
     {
-        GameManager.instance.ResquestAdReward();
+        //GameManager.instance.ResquestAdReward();
     }
 
     public void GameOver(int score, int record, bool newRecord)

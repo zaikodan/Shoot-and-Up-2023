@@ -17,13 +17,13 @@ public class MenuManager : MonoBehaviour
         playerNameUI.text = PlayerStats.playerName;
         Debug.Log(PlayerStats.playerName);
 
-        AdsManager.instance.SetBanner(true);
+        //AdsManager.instance.SetBanner(true);
     }
 
     public void LoadScene(string sceneName)
     {
         GameManager.instance.LoadScene(sceneName);
-        AdsManager.instance.SetBanner(false);
+        //AdsManager.instance.SetBanner(false);
     }
 
     public void SavePlayerName()
