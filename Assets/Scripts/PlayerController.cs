@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -44,6 +45,16 @@ public class PlayerController : SpaceShip
     private void OnDisable()
     {
         inputSystem.Disable();
+    }
+
+    [PunRPC]
+    void Setup()
+    {
+        if (!photonView.IsMine)
+        {
+            inputSystem.Disable();
+        }
+        
     }
 
     // Start is called before the first frame update
