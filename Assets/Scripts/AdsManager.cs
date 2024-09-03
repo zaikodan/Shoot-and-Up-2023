@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UIElements;
 
-/*public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsShowListener
+public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsShowListener
 {
     const string gameID = "5420273";
     const string bannerID = "Banner_Android";
@@ -110,4 +110,4 @@ using UnityEngine.UIElements;
             }
         }
     }
-}*/
+}

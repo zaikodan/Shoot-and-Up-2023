@@ -94,8 +94,7 @@ public class GameManager : MonoBehaviourPun
     }
     public void GameOver()
     {
-        //managerUI.RewardWindow.SetActive(true);
-        managerUI.FinishMatch();
+        managerUI.RewardWindow.SetActive(true);
         Time.timeScale = 0;
     }
 
@@ -106,12 +105,12 @@ public class GameManager : MonoBehaviourPun
         Debug.Log("Numero de mortes: " + deathsAmount);
         if (deathsAmount == 3)
         {
-            //AdsManager.instance.ShowInterstitial(true);
+            AdsManager.instance.ShowInterstitial(true);
             deathsAmount = 0;
         }
         else
         {
-            //AdsManager.instance.ShowInterstitial(false);
+            AdsManager.instance.ShowInterstitial(false);
         }
         #endregion
 
@@ -122,8 +121,8 @@ public class GameManager : MonoBehaviourPun
 
     public void ResquestAdReward()
     {
-        //AdsManager.instance.delegateCompleteReward = RevivePlayer;
-        //AdsManager.instance.ShowRewarded();
+        AdsManager.instance.delegateCompleteReward = RevivePlayer;
+        AdsManager.instance.ShowRewarded();
     }
 
     private void RevivePlayer()
@@ -135,9 +134,9 @@ public class GameManager : MonoBehaviourPun
 
     public void RequestAdCoin()
     {
-        //AdsManager.instance.ShowRewarded();
-        //AdsManager.instance.delegateCompleteReward = AdCoinsComplete;
-        //AdsManager.instance.delegateHalfReward = AdCoinsHalf;
+        AdsManager.instance.ShowRewarded();
+        AdsManager.instance.delegateCompleteReward = AdCoinsComplete;
+        AdsManager.instance.delegateHalfReward = AdCoinsHalf;
     }
 
     private void AdCoinsComplete()
@@ -158,7 +157,7 @@ public class GameManager : MonoBehaviourPun
         {
             record = score;
             PlayerPrefs.SetInt("Record", record);
-            //Highscores.instance.AddNewHighscore(PlayerStats.playerName, score);
+            Highscores.instance.AddNewHighscore(PlayerStats.playerName, score);
             return true;
         }
         else

@@ -30,6 +30,7 @@ public class MenuManager : MonoBehaviour
         }
         #endregion
 
+<<<<<<< HEAD
         // Adiciona listeners aos botões, associando métodos aos eventos de clique.
         joinButton.onClick.AddListener(JoinRoom);
         createButton.onClick.AddListener(CreateRoom);
@@ -42,13 +43,21 @@ public class MenuManager : MonoBehaviour
 
         // Chama o método SwitchWindow para exibir o menu inicial.
         SwitchWindow(false);
+=======
+        AdsManager.instance.SetBanner(true);
+>>>>>>> parent of d448095 (Ajustes para implementar o Photon)
     }
 
     // Método público que habilita os botões joinButton e createButton quando conectado.
     public void Connected()
     {
+<<<<<<< HEAD
         joinButton.interactable = true;
         createButton.interactable = true;
+=======
+        GameManager.instance.LoadScene(sceneName);
+        AdsManager.instance.SetBanner(false);
+>>>>>>> parent of d448095 (Ajustes para implementar o Photon)
     }
 
     // Método público que atualiza a lista de jogadores na interface.
