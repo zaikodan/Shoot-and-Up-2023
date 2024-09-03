@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPun
 {
     int score, record, playerCoins, deathsAmount;
     [SerializeField]UIManager managerUI;
+
+    const string playerPrefab = "Prefabs/Player";
+    int playersAmount;
 
     #region Singleton
     public static GameManager instance;
@@ -30,6 +34,26 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    private void Start()
+    {
+        photonView.RPC("AddPlayer", RpcTarget.AllBuffered);
+    }
+
+    void CreatePlayer()
+    {
+        NetworkManager.instance.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+    }
+
+    [PunRPC]
+    void AddPlayer()
+    {
+        playersAmount++;
+        if (playersAmount == PhotonNetwork.PlayerList.Length) 
+        {
+            CreatePlayer(); 
+        }
+    }
 
     private void AddCoins(int value)
     {
