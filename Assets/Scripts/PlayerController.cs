@@ -26,14 +26,14 @@ public class PlayerController : SpaceShip
     {
         joystick = FindObjectOfType<Joystick>();
         
-       /* inputSystem = new InputSystem();
+        inputSystem = new InputSystem();
 
         inputSystem.Player.Move.performed += ctx => direction = ctx.ReadValue<Vector2>();
         inputSystem.Player.Fire.started += ctx => firing = true;
         inputSystem.Player.Fire.canceled += ctx => firing = false;
         inputSystem.Player.Turbo.started += ctx => speed *= 2;
         inputSystem.Player.Turbo.canceled += ctx => speed /= 2;
-       */
+       
     }
 
     private void OnEnable()
@@ -70,7 +70,7 @@ public class PlayerController : SpaceShip
         FireRateBuff();
 
 
-        direction = joystick.Direction;
+        //direction = joystick.Direction;
     }
 
     private void LateUpdate()

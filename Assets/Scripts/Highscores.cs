@@ -33,7 +33,7 @@ public class Highscores : MonoBehaviour
 
     private void Start()
     {
-        DownloadHighscores();
+        //DownloadHighscores();
     }
 
     public void AddNewHighscore(string username, int score)
