@@ -8,6 +8,9 @@ public class EnemyShip : SpaceShip
     float destination;
     HUD hud;
 
+    [SerializeField] string prefabPath;
+    public string PrefabPath { get => prefabPath; }
+
     public int ScoreNeeded { get => scoreNeeded; }
 
     Transform player;

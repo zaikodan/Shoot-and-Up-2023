@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        GameManager.instance.LoadScene(sceneName);
+        NetworkManager.instance.LoadScene(sceneName);
     }
 
     public void UpdateScore(int value)

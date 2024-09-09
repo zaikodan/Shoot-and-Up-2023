@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviourPun
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //(gameObject);
         }
         else if(instance != this)
         {
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviourPun
 
     private void Start()
     {
+        Debug.Log("Iniciei");
         photonView.RPC("AddPlayer", RpcTarget.AllBuffered);
     }
 
