@@ -18,9 +18,12 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnAsteroid();
-        SpawnBuff();
-        SpawnEnemyShip();
+        if (Photon.Pun.PhotonNetwork.IsMasterClient)
+        {
+            SpawnAsteroid();
+            SpawnBuff();
+            SpawnEnemyShip();
+        }
     }
 
     Vector2 GeneratePosition(GameObject objectSelected)
@@ -66,7 +69,7 @@ public class SpawnManager : MonoBehaviour
         {
             GameObject asteroidSelected = ChoosenAsteroid();
             asteroidTimer = asteroidCooldown;
-            Instantiate(asteroidSelected, GeneratePosition(asteroidSelected), Quaternion.identity);
+            NetworkManager.instance.Instantiate(asteroidSelected.GetComponent<Asteroid>().PrefabPath, GeneratePosition(asteroidSelected), Quaternion.identity);
         }
     }
 

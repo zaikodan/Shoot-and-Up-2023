@@ -10,9 +10,13 @@ public class Asteroid : Projectile, IDamageable
     [SerializeField] int score;
     float health;
 
+    [SerializeField] string prefabPath;
+
 
     HUD hud;
     Animator animator;
+
+    public string PrefabPath { get => prefabPath; }
 
     protected override void Start()
     {
