@@ -8,6 +8,14 @@ public class PlayerHUD : HUD
     float damageDuration, speedDuration, fireRateDuration;
     [SerializeField] Image speedBar, damageBar, fireRateBar;
 
+    private void Awake()
+    {
+        healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
+        speedBar = GameObject.Find("SpeedBar").GetComponent<Image>();
+        damageBar = GameObject.Find("DamageBar").GetComponent<Image>();
+        fireRateBar = GameObject.Find("FireRateBar").GetComponent<Image>();
+    }
+
     public void SetSpeedDuration(float duration)
     {
         speedDuration = duration;
